@@ -18,7 +18,7 @@ use crate::model::prelude::*;
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct CommandPermissionsUpdateEvent {
     pub permission: CommandPermissions,
 }
@@ -29,7 +29,7 @@ pub struct CommandPermissionsUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct AutoModRuleCreateEvent {
     pub rule: AutoModRule,
 }
@@ -40,7 +40,7 @@ pub struct AutoModRuleCreateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct AutoModRuleUpdateEvent {
     pub rule: AutoModRule,
 }
@@ -51,7 +51,7 @@ pub struct AutoModRuleUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct AutoModRuleDeleteEvent {
     pub rule: AutoModRule,
 }
@@ -62,7 +62,7 @@ pub struct AutoModRuleDeleteEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct AutoModActionExecutionEvent {
     pub execution: ActionExecution,
 }
@@ -78,7 +78,7 @@ pub struct AutoModActionExecutionEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ChannelCreateEvent {
     /// The channel that was created.
     pub channel: GuildChannel,
@@ -90,7 +90,7 @@ pub struct ChannelCreateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ChannelDeleteEvent {
     pub channel: GuildChannel,
 }
@@ -100,7 +100,7 @@ pub struct ChannelDeleteEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#channel-pins-update).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ChannelPinsUpdateEvent {
     pub guild_id: Option<GuildId>,
     pub channel_id: ChannelId,
@@ -113,7 +113,7 @@ pub struct ChannelPinsUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ChannelUpdateEvent {
     pub channel: GuildChannel,
 }
@@ -123,7 +123,7 @@ pub struct ChannelUpdateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-audit-log-entry-create).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildAuditLogEntryCreateEvent {
     pub guild_id: GuildId,
     #[serde(flatten)]
@@ -135,7 +135,7 @@ pub struct GuildAuditLogEntryCreateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-ban-add).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildBanAddEvent {
     pub guild_id: GuildId,
     pub user: User,
@@ -146,7 +146,7 @@ pub struct GuildBanAddEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-ban-remove).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildBanRemoveEvent {
     pub guild_id: GuildId,
     pub user: User,
@@ -158,7 +158,7 @@ pub struct GuildBanRemoveEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildCreateEvent {
     pub guild: Guild,
 }
@@ -182,7 +182,7 @@ impl<'de> Deserialize<'de> for GuildCreateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildDeleteEvent {
     pub guild: UnavailableGuild,
 }
@@ -192,7 +192,7 @@ pub struct GuildDeleteEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-emojis-update).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildEmojisUpdateEvent {
     pub emojis: ExtractMap<EmojiId, Emoji>,
     pub guild_id: GuildId,
@@ -203,7 +203,7 @@ pub struct GuildEmojisUpdateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-integrations-update).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildIntegrationsUpdateEvent {
     pub guild_id: GuildId,
 }
@@ -214,7 +214,7 @@ pub struct GuildIntegrationsUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildMemberAddEvent {
     pub member: Member,
 }
@@ -224,7 +224,7 @@ pub struct GuildMemberAddEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-member-remove).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildMemberRemoveEvent {
     pub guild_id: GuildId,
     pub user: User,
@@ -236,7 +236,7 @@ pub struct GuildMemberRemoveEvent {
 #[bool_to_bitflags::bool_to_bitflags]
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildMemberUpdateEvent {
     pub guild_id: GuildId,
     pub nick: Option<FixedString<u8>>,
@@ -261,7 +261,7 @@ pub struct GuildMemberUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(remote = "Self")]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildMembersChunkEvent {
     /// ID of the guild.
     pub guild_id: GuildId,
@@ -310,7 +310,7 @@ struct RoleEventHelper {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-role-create).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildRoleCreateEvent {
     pub role: Role,
 }
@@ -331,7 +331,7 @@ impl<'de> Deserialize<'de> for GuildRoleCreateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-role-delete).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildRoleDeleteEvent {
     pub guild_id: GuildId,
     pub role_id: RoleId,
@@ -342,7 +342,7 @@ pub struct GuildRoleDeleteEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-role-update).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildRoleUpdateEvent {
     pub role: Role,
 }
@@ -363,7 +363,7 @@ impl<'de> Deserialize<'de> for GuildRoleUpdateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-stickers-update).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildStickersUpdateEvent {
     pub stickers: ExtractMap<StickerId, Sticker>,
     pub guild_id: GuildId,
@@ -374,7 +374,7 @@ pub struct GuildStickersUpdateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#invite-create).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct InviteCreateEvent {
     /// Whether or not the invite is temporary (invited users will be kicked on disconnect unless
     /// Channel the invite is for.
@@ -408,7 +408,7 @@ pub struct InviteCreateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#invite-delete).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct InviteDeleteEvent {
     pub channel_id: ChannelId,
     pub guild_id: Option<GuildId>,
@@ -421,7 +421,7 @@ pub struct InviteDeleteEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildUpdateEvent {
     /// GuildUpdateEvent doesn't have GuildCreate's extra fields, so this is a partial guild
     pub guild: PartialGuild,
@@ -433,7 +433,7 @@ pub struct GuildUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessageCreateEvent {
     pub message: Message,
 }
@@ -443,7 +443,7 @@ pub struct MessageCreateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#message-delete-bulk).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessageDeleteBulkEvent {
     pub guild_id: Option<GuildId>,
     pub channel_id: ChannelId,
@@ -455,7 +455,7 @@ pub struct MessageDeleteBulkEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#message-delete).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessageDeleteEvent {
     pub guild_id: Option<GuildId>,
     pub channel_id: ChannelId,
@@ -468,7 +468,7 @@ pub struct MessageDeleteEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#message-update).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessageUpdateEvent {
     #[serde(flatten)]
     pub message: Message,
@@ -480,7 +480,7 @@ pub struct MessageUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct PresenceUpdateEvent {
     pub presence: Presence,
 }
@@ -492,7 +492,7 @@ pub struct PresenceUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ReactionAddEvent {
     pub reaction: Reaction,
 }
@@ -504,7 +504,7 @@ pub struct ReactionAddEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ReactionRemoveEvent {
     // The Discord API doesn't share the same schema for Reaction Remove Event and Reaction Add
     // Event (which [`Reaction`] is), but the two currently match up well enough, so re-using the
@@ -518,7 +518,7 @@ pub struct ReactionRemoveEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#message-reaction-remove-all).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ReactionRemoveAllEvent {
     pub channel_id: ChannelId,
     pub message_id: MessageId,
@@ -532,7 +532,7 @@ pub struct ReactionRemoveAllEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ReactionRemoveEmojiEvent {
     pub reaction: Reaction,
 }
@@ -545,7 +545,7 @@ pub struct ReactionRemoveEmojiEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ReadyEvent {
     pub ready: Ready,
 }
@@ -555,7 +555,7 @@ pub struct ReadyEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#resumed).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ResumedEvent {}
 
 /// Requires [`GatewayIntents::GUILD_MESSAGE_TYPING`] or [`GatewayIntents::DIRECT_MESSAGE_TYPING`].
@@ -563,7 +563,7 @@ pub struct ResumedEvent {}
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#typing-start).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct TypingStartEvent {
     /// ID of the channel.
     pub channel_id: ChannelId,
@@ -585,7 +585,7 @@ pub struct TypingStartEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct UserUpdateEvent {
     pub current_user: CurrentUser,
 }
@@ -595,7 +595,7 @@ pub struct UserUpdateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#voice-server-update).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct VoiceServerUpdateEvent {
     pub token: FixedString,
     pub guild_id: GuildId,
@@ -608,7 +608,7 @@ pub struct VoiceServerUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct VoiceStateUpdateEvent {
     pub voice_state: VoiceState,
 }
@@ -618,7 +618,7 @@ pub struct VoiceStateUpdateEvent {
 /// [Incomplete documentation](https://github.com/discord/discord-api-docs/pull/6398)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct VoiceChannelStatusUpdateEvent {
     pub status: Option<FixedString<u16>>,
     pub id: ChannelId,
@@ -630,7 +630,7 @@ pub struct VoiceChannelStatusUpdateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#webhooks-update).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct WebhookUpdateEvent {
     pub channel_id: ChannelId,
     pub guild_id: GuildId,
@@ -642,7 +642,7 @@ pub struct WebhookUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct InteractionCreateEvent {
     pub interaction: Interaction,
 }
@@ -653,7 +653,7 @@ pub struct InteractionCreateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct IntegrationCreateEvent {
     pub integration: Integration,
 }
@@ -664,7 +664,7 @@ pub struct IntegrationCreateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct IntegrationUpdateEvent {
     pub integration: Integration,
 }
@@ -674,7 +674,7 @@ pub struct IntegrationUpdateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#integration-delete).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Serialize, Deserialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct IntegrationDeleteEvent {
     pub id: IntegrationId,
     pub guild_id: GuildId,
@@ -687,7 +687,7 @@ pub struct IntegrationDeleteEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct StageInstanceCreateEvent {
     pub stage_instance: StageInstance,
 }
@@ -698,7 +698,7 @@ pub struct StageInstanceCreateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct StageInstanceUpdateEvent {
     pub stage_instance: StageInstance,
 }
@@ -709,7 +709,7 @@ pub struct StageInstanceUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct StageInstanceDeleteEvent {
     pub stage_instance: StageInstance,
 }
@@ -719,7 +719,7 @@ pub struct StageInstanceDeleteEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#thread-create).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ThreadCreateEvent {
     #[serde(flatten)]
     pub thread: GuildChannel,
@@ -732,7 +732,7 @@ pub struct ThreadCreateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ThreadUpdateEvent {
     pub thread: GuildChannel,
 }
@@ -743,7 +743,7 @@ pub struct ThreadUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ThreadDeleteEvent {
     pub thread: PartialGuildChannel,
 }
@@ -753,7 +753,7 @@ pub struct ThreadDeleteEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#thread-list-sync).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ThreadListSyncEvent {
     /// The guild Id.
     pub guild_id: GuildId,
@@ -775,7 +775,7 @@ pub struct ThreadListSyncEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ThreadMemberUpdateEvent {
     pub member: ThreadMember,
 }
@@ -785,7 +785,7 @@ pub struct ThreadMemberUpdateEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#thread-members-update).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ThreadMembersUpdateEvent {
     /// The id of the thread.
     pub id: ChannelId,
@@ -810,7 +810,7 @@ pub struct ThreadMembersUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildScheduledEventCreateEvent {
     pub event: ScheduledEvent,
 }
@@ -821,7 +821,7 @@ pub struct GuildScheduledEventCreateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildScheduledEventUpdateEvent {
     pub event: ScheduledEvent,
 }
@@ -832,7 +832,7 @@ pub struct GuildScheduledEventUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildScheduledEventDeleteEvent {
     pub event: ScheduledEvent,
 }
@@ -842,7 +842,7 @@ pub struct GuildScheduledEventDeleteEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-scheduled-event-user-add).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildScheduledEventUserAddEvent {
     #[serde(rename = "guild_scheduled_event_id")]
     pub scheduled_event_id: ScheduledEventId,
@@ -855,7 +855,7 @@ pub struct GuildScheduledEventUserAddEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#guild-scheduled-event-user-remove).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct GuildScheduledEventUserRemoveEvent {
     #[serde(rename = "guild_scheduled_event_id")]
     pub scheduled_event_id: ScheduledEventId,
@@ -869,7 +869,7 @@ pub struct GuildScheduledEventUserRemoveEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct EntitlementCreateEvent {
     pub entitlement: Entitlement,
 }
@@ -880,7 +880,7 @@ pub struct EntitlementCreateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct EntitlementUpdateEvent {
     pub entitlement: Entitlement,
 }
@@ -891,7 +891,7 @@ pub struct EntitlementUpdateEvent {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(transparent)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct EntitlementDeleteEvent {
     pub entitlement: Entitlement,
 }
@@ -901,7 +901,7 @@ pub struct EntitlementDeleteEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#message-poll-vote-add)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessagePollVoteAddEvent {
     pub user_id: UserId,
     pub channel_id: ChannelId,
@@ -915,7 +915,7 @@ pub struct MessagePollVoteAddEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#message-poll-vote-remove)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessagePollVoteRemoveEvent {
     pub user_id: UserId,
     pub channel_id: ChannelId,
@@ -927,7 +927,7 @@ pub struct MessagePollVoteRemoveEvent {
 /// [Discord docs](https://discord.com/developers/docs/topics/gateway-events#payload-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Debug, Clone, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 #[serde(untagged)]
 pub enum GatewayEvent {
     Dispatch {
@@ -1001,7 +1001,7 @@ impl<'de> Deserialize<'de> for GatewayEvent {
 #[strum(serialize_all = "SCREAMING_SNAKE_CASE")]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 #[serde(tag = "t", content = "d")]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum Event {
     /// The permissions of an [`Command`] was changed.
     ///

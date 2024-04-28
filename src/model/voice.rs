@@ -10,7 +10,7 @@ use crate::model::prelude::*;
 /// [Discord docs](https://discord.com/developers/docs/resources/voice#voice-region-object).
 #[bool_to_bitflags::bool_to_bitflags]
 #[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct VoiceRegion {
     /// Whether it is a custom voice region, which is used for events.
     pub custom: bool,
@@ -31,7 +31,7 @@ pub struct VoiceRegion {
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, serde::Deserialize, serde::Serialize)]
 #[serde(remote = "Self")]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct VoiceState {
     pub channel_id: Option<ChannelId>,
     pub deaf: bool,

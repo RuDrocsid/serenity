@@ -19,7 +19,7 @@ use crate::model::utils::avatar_url;
 #[bool_to_bitflags::bool_to_bitflags]
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Default, serde::Deserialize, serde::Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct Member {
     /// Attached User struct.
     pub user: User,
@@ -445,7 +445,7 @@ impl ExtractKey<UserId> for Member {
 #[bool_to_bitflags::bool_to_bitflags]
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Hash, PartialEq, Eq, serde::Deserialize, serde::Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct PartialMember {
     /// Indicator of whether the member can hear in voice channels.
     #[serde(default)]
@@ -534,7 +534,7 @@ impl From<Member> for PartialMember {
 
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct PartialThreadMember {
     /// The time the current user last joined the thread.
     pub join_timestamp: Timestamp,
@@ -550,7 +550,7 @@ pub struct PartialThreadMember {
 /// [extra fields]: https://discord.com/developers/docs/topics/gateway-events#thread-member-update-thread-member-update-event-extra-fields
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ThreadMember {
     #[serde(flatten)]
     pub inner: PartialThreadMember,

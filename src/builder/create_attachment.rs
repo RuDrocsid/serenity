@@ -18,7 +18,7 @@ use crate::model::id::AttachmentId;
 ///
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#attachment-object-attachment-structure).
 #[derive(Clone, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 #[must_use]
 pub struct CreateAttachment<'a> {
     pub filename: Cow<'static, str>,

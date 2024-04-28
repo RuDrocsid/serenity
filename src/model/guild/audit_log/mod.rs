@@ -16,7 +16,7 @@ use crate::model::prelude::*;
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum Action {
     GuildUpdate,
     Channel(ChannelAction),
@@ -145,7 +145,7 @@ impl Serialize for Action {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum ChannelAction {
     Create = 10,
     Update = 11,
@@ -155,7 +155,7 @@ pub enum ChannelAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum ChannelOverwriteAction {
     Create = 13,
     Update = 14,
@@ -165,7 +165,7 @@ pub enum ChannelOverwriteAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum MemberAction {
     Kick = 20,
     Prune = 21,
@@ -181,7 +181,7 @@ pub enum MemberAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum RoleAction {
     Create = 30,
     Update = 31,
@@ -191,7 +191,7 @@ pub enum RoleAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum InviteAction {
     Create = 40,
     Update = 41,
@@ -201,7 +201,7 @@ pub enum InviteAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum WebhookAction {
     Create = 50,
     Update = 51,
@@ -211,7 +211,7 @@ pub enum WebhookAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum EmojiAction {
     Create = 60,
     Update = 61,
@@ -221,7 +221,7 @@ pub enum EmojiAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum MessageAction {
     Delete = 72,
     BulkDelete = 73,
@@ -232,7 +232,7 @@ pub enum MessageAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum IntegrationAction {
     Create = 80,
     Update = 81,
@@ -242,7 +242,7 @@ pub enum IntegrationAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum StageInstanceAction {
     Create = 83,
     Update = 84,
@@ -252,7 +252,7 @@ pub enum StageInstanceAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum StickerAction {
     Create = 90,
     Update = 91,
@@ -262,7 +262,7 @@ pub enum StickerAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum ScheduledEventAction {
     Create = 100,
     Update = 101,
@@ -272,7 +272,7 @@ pub enum ScheduledEventAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Copy, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum ThreadAction {
     Create = 110,
     Update = 111,
@@ -282,7 +282,7 @@ pub enum ThreadAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Copy, Clone, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum AutoModAction {
     RuleCreate = 140,
     RuleUpdate = 141,
@@ -295,7 +295,7 @@ pub enum AutoModAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Copy, Clone, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum CreatorMonetizationAction {
     RequestCreated = 150,
     TermsAccepted = 151,
@@ -304,7 +304,7 @@ pub enum CreatorMonetizationAction {
 /// [Incomplete documentation](https://github.com/discord/discord-api-docs/pull/6398)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Copy, Clone, Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum VoiceChannelStatusAction {
     StatusUpdate = 192,
     StatusDelete = 193,
@@ -313,7 +313,7 @@ pub enum VoiceChannelStatusAction {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-object).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct AuditLogs {
     /// List of audit log entries, sorted from most to least recent.
     #[serde(rename = "audit_log_entries")]
@@ -342,7 +342,7 @@ pub struct AuditLogs {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-object-example-partial-integration-object).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct PartialIntegration {
     pub id: IntegrationId,
     pub name: FixedString,
@@ -355,7 +355,7 @@ pub struct PartialIntegration {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Debug, Deserialize, Serialize, Clone)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct AuditLogEntry {
     /// Determines to what entity an [`Self::action`] was used on.
     pub target_id: Option<GenericId>,
@@ -378,7 +378,7 @@ pub struct AuditLogEntry {
 /// [Discord docs](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-optional-audit-entry-info).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Debug, Deserialize, Serialize, Clone)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct AuditLogEntryOptions {
     /// Name of the Auto Moderation rule that was triggered.
     pub auto_moderation_rule_name: Option<FixedString>,

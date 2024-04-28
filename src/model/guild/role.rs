@@ -19,7 +19,7 @@ use crate::model::utils::is_false;
 #[bool_to_bitflags::bool_to_bitflags]
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Default, PartialEq, Eq, serde::Deserialize, serde::Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct Role {
     /// The Id of the role. Can be used to calculate the role's creation date.
     pub id: RoleId,
@@ -182,7 +182,7 @@ impl From<&Role> for RoleId {
 #[bool_to_bitflags::bool_to_bitflags]
 #[derive(Clone, Debug, Default, Eq, PartialEq, serde::Deserialize, serde::Serialize)]
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct RoleTags {
     /// The Id of the bot the [`Role`] belongs to.
     pub bot_id: Option<UserId>,

@@ -23,7 +23,7 @@ use crate::model::utils::{discord_colours, StrOrInt};
 #[bool_to_bitflags::bool_to_bitflags]
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Default, serde::Deserialize, serde::Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct Message {
     /// The unique Id of the message. Can be used to calculate the creation date of the message.
     pub id: MessageId,
@@ -619,7 +619,7 @@ impl From<&Message> for MessageId {
 /// [reaction type]: ReactionType
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessageReaction {
     /// The amount of the type of reaction that have been sent for the associated message
     /// including super reactions.
@@ -643,7 +643,7 @@ pub struct MessageReaction {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#reaction-count-details-object).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct CountDetails {
     pub burst: u64,
     pub normal: u64,
@@ -655,7 +655,7 @@ enum_number! {
     /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-object-message-types).
     #[derive(Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
     #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-    #[non_exhaustive]
+    #[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
     pub enum MessageType {
         /// A regular message.
         Regular = 0,
@@ -724,7 +724,7 @@ enum_number! {
     /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-object-message-activity-types).
     #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
     #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-    #[non_exhaustive]
+    #[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
     pub enum MessageActivityKind {
         Join = 1,
         Spectate = 2,
@@ -740,7 +740,7 @@ enum_number! {
 /// [subset undocumented](https://discord.com/developers/docs/resources/channel#message-object-message-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessageApplication {
     /// ID of the application.
     pub id: ApplicationId,
@@ -759,7 +759,7 @@ pub struct MessageApplication {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-object-message-activity-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessageActivity {
     /// Kind of message activity.
     #[serde(rename = "type")]
@@ -774,7 +774,7 @@ enum_number! {
     /// [Discord docs](https://discord.com/developers/docs/resources/message#message-reference-types)
     #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
     #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-    #[non_exhaustive]
+    #[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
     #[<default> = 0]
     pub enum MessageReferenceKind {
         Default = 0,
@@ -788,7 +788,7 @@ enum_number! {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#message-reference-object-message-reference-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessageReference {
     /// The Type of Message Reference
     #[serde(rename = "type", default = "MessageReferenceKind::default")]
@@ -850,7 +850,7 @@ impl From<&Message> for MessageReference {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#channel-mention-object).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct ChannelMention {
     /// ID of the channel.
     pub id: ChannelId,
@@ -868,7 +868,7 @@ pub struct ChannelMention {
 /// For field documentation, see [`Message`].
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Serialize, Deserialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct MessageSnapshot {
     pub content: String,
     pub timestamp: Timestamp,
@@ -994,7 +994,7 @@ pub struct RoleSubscriptionData {
 /// [Discord docs](https://discord.com/developers/docs/resources/poll#poll-object)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct Poll {
     pub question: PollMedia,
     pub answers: Vec<PollAnswer>,
@@ -1015,7 +1015,7 @@ pub struct Poll {
 /// [Discord docs](https://discord.com/developers/docs/resources/poll#poll-media-object)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct PollMedia {
     pub text: Option<String>,
     pub emoji: Option<PollMediaEmoji>,
@@ -1068,7 +1068,7 @@ impl From<EmojiId> for PollMediaEmoji {
 /// [Discord docs](https://discord.com/developers/docs/resources/poll#poll-answer-object)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct PollAnswer {
     pub answer_id: AnswerId,
     pub poll_media: PollMedia,
@@ -1082,7 +1082,7 @@ enum_number! {
     /// [Discord docs](https://discord.com/developers/docs/resources/poll#layout-type)
     #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Deserialize, Serialize)]
     #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
-    #[non_exhaustive]
+    #[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
     #[<default> = 1]
     pub enum PollLayoutType {
         Default = 1,
@@ -1097,7 +1097,7 @@ enum_number! {
 /// [Discord docs](https://discord.com/developers/docs/resources/poll#poll-results-object-poll-results-object-structure)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct PollResults {
     pub is_finalized: bool,
     pub answer_counts: Vec<PollAnswerCount>,
@@ -1108,7 +1108,7 @@ pub struct PollResults {
 /// [Discord docs](https://discord.com/developers/docs/resources/poll#poll-results-object-poll-answer-count-object-structure)
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct PollAnswerCount {
     pub id: AnswerId,
     pub count: u64,
