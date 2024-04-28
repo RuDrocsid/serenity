@@ -853,7 +853,7 @@ fn deserialize_and_log_event(map: JsonMap, original_str: &str) -> Result<Event> 
 }
 
 #[derive(Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum ShardAction {
     Heartbeat,
     Identify,
@@ -895,7 +895,7 @@ pub struct ShardStageUpdateEvent {
 ///
 /// This can be useful for knowing which shards are currently "down"/"up".
 #[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum ConnectionStage {
     /// Indicator that the [`Shard`] is normally connected and is not in, e.g., a resume phase.
     Connected,
@@ -961,7 +961,7 @@ impl fmt::Display for ConnectionStage {
 
 /// The type of reconnection that should be performed.
 #[derive(Debug)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum ReconnectType {
     /// Indicator that a new connection should be made by sending an IDENTIFY.
     Reidentify,
@@ -992,7 +992,7 @@ impl PartialEq for CollectorCallback {
 
 /// The transport compression method to use.
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum TransportCompression {
     /// No transport compression. Payload compression will be used instead.
     None,

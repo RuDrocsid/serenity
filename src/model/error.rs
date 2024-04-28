@@ -4,7 +4,7 @@ use std::error::Error as StdError;
 use std::fmt;
 
 #[derive(Copy, Clone, Debug, Eq, Hash, PartialEq)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum Maximum {
     EmbedLength,
     EmbedCount,
@@ -59,7 +59,7 @@ impl fmt::Display for Maximum {
 }
 
 #[derive(Copy, Clone, Debug, Eq, Hash, PartialEq)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum Minimum {
     WebhookName,
     BulkDeleteAmount,
@@ -140,7 +140,7 @@ impl fmt::Display for Minimum {
 /// [`GuildId::ban`]: super::id::GuildId::ban
 /// [`model`]: crate::model
 #[derive(Clone, Debug, Eq, Hash, PartialEq)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub enum Error {
     /// Indicates that the `minimum` has been missed by the `value`.
     TooSmall { minimum: Minimum, value: usize },

@@ -6,7 +6,7 @@ use crate::model::prelude::*;
 /// [subset specification](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-resolved-data-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct PartialChannel {
     /// The channel Id.
     pub id: ChannelId,
@@ -37,7 +37,7 @@ impl ExtractKey<ChannelId> for PartialChannel {
 ///
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#followed-channel-object).
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct FollowedChannel {
     /// The source news channel
     pub channel_id: ChannelId,

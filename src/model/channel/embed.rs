@@ -15,7 +15,7 @@ use crate::model::prelude::*;
 /// [slack's attachments]: https://api.slack.com/docs/message-attachments
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Default, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct Embed {
     /// The title of the embed.
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -76,7 +76,7 @@ pub struct Embed {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#embed-object-embed-author-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct EmbedAuthor {
     /// The name of the author.
     pub name: FixedString<u16>,
@@ -98,7 +98,7 @@ pub struct EmbedAuthor {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#embed-object-embed-field-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct EmbedField {
     /// The name of the field.
     ///
@@ -144,7 +144,7 @@ impl EmbedField {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#embed-object-embed-footer-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct EmbedFooter {
     /// The associated text with the footer.
     pub text: FixedString<u16>,
@@ -163,7 +163,7 @@ pub struct EmbedFooter {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#embed-object-embed-image-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct EmbedImage {
     /// Source URL of the image.
     ///
@@ -182,7 +182,7 @@ pub struct EmbedImage {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#embed-object-embed-provider-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct EmbedProvider {
     /// The name of the provider.
     pub name: Option<FixedString>,
@@ -195,7 +195,7 @@ pub struct EmbedProvider {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#embed-object-embed-thumbnail-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct EmbedThumbnail {
     /// The source URL of the thumbnail.
     ///
@@ -214,7 +214,7 @@ pub struct EmbedThumbnail {
 /// [Discord docs](https://discord.com/developers/docs/resources/channel#embed-object-embed-video-structure).
 #[cfg_attr(feature = "typesize", derive(typesize::derive::TypeSize))]
 #[derive(Clone, Debug, Deserialize, Serialize)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 pub struct EmbedVideo {
     /// The source URL of the video.
     pub url: FixedString,

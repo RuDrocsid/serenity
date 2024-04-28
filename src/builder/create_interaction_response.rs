@@ -291,7 +291,7 @@ impl<'a> CreateInteractionResponseMessage<'a> {
 
 #[derive(Clone, Debug, Serialize)]
 #[serde(untagged)]
-#[non_exhaustive]
+#[cfg_attr(any(not(feature = "unstable_exhaustive_types"), doc), non_exhaustive)]
 #[must_use]
 pub enum AutocompleteValue<'a> {
     String(Cow<'a, str>),
