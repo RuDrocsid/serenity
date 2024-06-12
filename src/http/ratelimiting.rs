@@ -35,7 +35,6 @@
 //!
 //! [Taken from]: https://discord.com/developers/docs/topics/rate-limits#rate-limits
 
-use std::borrow::Cow;
 use std::fmt;
 use std::str::{self, FromStr};
 use std::time::SystemTime;
@@ -47,6 +46,7 @@ use tokio::sync::Mutex;
 use tokio::time::{sleep, Duration};
 use tracing::debug;
 
+use super::routing::OwnedRoute;
 pub use super::routing::RatelimitingBucket;
 use super::{HttpError, LightMethod, Request};
 use crate::internal::prelude::*;
@@ -59,7 +59,7 @@ pub struct RatelimitInfo {
     pub timeout: std::time::Duration,
     pub limit: i64,
     pub method: LightMethod,
-    pub path: Cow<'static, str>,
+    pub route: OwnedRoute,
     pub global: bool,
 }
 
@@ -228,7 +228,7 @@ impl Ratelimiter {
                             timeout: Duration::from_secs_f64(retry_after),
                             limit: 50,
                             method: req.method,
-                            path: req.route.path(),
+                            route: req.route.upgrade_to_fully_owned_route(),
                             global: true,
                         });
                         sleep(Duration::from_secs_f64(retry_after)).await;
@@ -322,7 +322,7 @@ impl Ratelimit {
                 timeout: delay,
                 limit: self.limit,
                 method: req.method,
-                path: req.route.path(),
+                route: req.route.upgrade_to_fully_owned_route(),
                 global: false,
             });
 
@@ -380,7 +380,7 @@ impl Ratelimit {
                 timeout: Duration::from_secs_f64(retry_after),
                 limit: self.limit,
                 method: req.method,
-                path: req.route.path(),
+                route: req.route.upgrade_to_fully_owned_route(),
                 global: false,
             });
 
